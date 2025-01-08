@@ -36,6 +36,18 @@
   background-color: #1c4928;
 }
 
+.amount {
+  background-color: #f3f3f3;
+  color: #1c4928;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+  border-color: #1c4928;
+  margin: 10px;
+  padding: 5px;
+  width: 80px;
+}
+
 .error {
   color: rgb(149, 8, 8);
   margin-top: 20px;

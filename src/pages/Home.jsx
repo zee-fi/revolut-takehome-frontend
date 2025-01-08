@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import RevolutCheckout from "@revolut/checkout";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
@@ -8,6 +8,11 @@ function Home() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [ amount, setAmount ] = useState("1.00");
+
+  const handleSetAmount = (e) => {
+    setAmount(e.target.value);
+  }
 
   const processPayment = async () => {
     console.log("processPayment triggered");
@@ -18,7 +23,7 @@ function Home() {
       const response = await axios.post(
         "http://localhost:5005/api/create-order",
         {
-          amount: 1 * 100,
+          amount: amount * 100,
           currency: "GBP",
         }
       );
@@ -71,13 +76,15 @@ function Home() {
         <div className="product-card">
           <img src="/tree.jpg" alt="christmas tree" />
           <p> Christmas tree</p>
-          <p>Price: £ 1.00</p>
+          <div>
+          <label>Price: </label>
+          <input type="number" value={amount} onChange={handleSetAmount} min="1.00" className="amount"></input>
+          </div>
           <button onClick={processPayment} disabled={loading}>
             {loading ? <div className="spinner"></div> : "Order & Pay"}
           </button>
           <div>{error && <div className="error">{error}</div>}</div>
         </div>
-        <div id="promotional-banner"></div>
       </div>
     </>
   );
