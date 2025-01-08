@@ -1,0 +1,85 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  align-items: center;
+  display: grid;
+}
+
+.product-container {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+}
+
+.product-card {
+  background-color: #f8f5f5;
+  color: #1c4928;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 350px;
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.product-card button {
+  background-color: #1c4928;
+}
+
+.error {
+  color: rgb(149, 8, 8);
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3; 
+  border-top: 4px solid rgb(149, 8, 8); 
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
